@@ -1,6 +1,12 @@
 #include "order.h"
 
 Order::Order(std::string email) : _email{email} { }
+Order::Order(std::istream& ist) {
+    ist >> _email; ist.ignore();
+    int numoforder;
+    ist >> numoforder;
+    while (--numoforder) _products.push_back(Product_order(ist)); 
+}
 std::string Order::email() {return _email;}
 double Order::cost() {
     double sum;
@@ -22,3 +28,12 @@ std::ostream& operator<<(std::ostream& ost, const Order& order) {
     return ost;
 }
 
+void Order::save(std::ostream& ost){
+    ost << _email <<'\n';
+    ost << _products.size() << '\n';
+    int s = _products.size();
+    while (--s) {
+       ost << _products[s];
+       //_products[s].save(ost);
+    }
+}

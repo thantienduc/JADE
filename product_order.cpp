@@ -5,6 +5,15 @@ Product_order::Product_order(std::string name, double price, int quantity)
     : Product{name, price}, _quantity{quantity} {}
 Product_order::Product_order(Product product, int quantity)
     : Product{product}, _quantity{quantity} {}
+
+Product_order::Product_order(std::istream& ist) :Product{ist} {
+    ist >>_quantity;
+}
+
+void Product_order::save(std::ostream& ost) {
+    ost << quantity;
+    ost << (Product) *this; 
+}
 int Product_order::quantity() const {return _quantity;}
 double Product_order::cost() const {return price() * _quantity;}
 bool Product_order::operator==(const Product_order& po) {

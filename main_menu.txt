@@ -1,0 +1,10 @@
+		========================
+		Welcome to C1325 MavMart
+		========================
+Products		Orders			Utility
+--------		------			-------
+(1) Add Product		(3) Place order		(5) Help
+(2) List all products	(4) List all orders	(0) Exit
+
+
+Command?
