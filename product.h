@@ -10,7 +10,6 @@ class Product {
     std::string name() const;
     double price() const;
     void save(std::ostream& ost);
-    void load(std::istream& ist);
     friend std::ostream& operator<<(std::ostream& ost, const Product& product);
   private:
     std::string _name;

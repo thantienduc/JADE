@@ -3,10 +3,14 @@
 
 #include "order.h"
 #include <vector>
+#include <iostream>
+#include "product_list.h"
+#include "order_list.h"
 
 class Store {
   public:
     Store(std::string name);
+    Store(std::istream& ist);
     std::string name() const;
 
     // Product Management
@@ -19,12 +23,12 @@ class Store {
     void add_to_order(int order_num, Product_order po);
     int num_orders() const;
     Order order(int order_num) const;
-
+  
     friend std::ostream& operator<<(std::ostream& ost, const Store& store);
   private:
     std::string _name;
-    std::vector<Product> _products;
-    std::vector<Order> _orders;
+    Product_list _products;
+    Order_list _orders;
 };
 
 #endif

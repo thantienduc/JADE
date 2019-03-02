@@ -9,7 +9,9 @@ class Product_list{
     void save(std::ostream& ost);
     void load(std::istream& ist);
     Product_list(std::istream& ist);
-    void add_a(std::string name, double price);
+    int size() const {return _ps.size();}
+    Product at(int i) const {return _ps.at(i);}
+    void add_a(Product p);
     bool operator==(const Product_list b);
     bool operator!=(const Product_list b);
   private:

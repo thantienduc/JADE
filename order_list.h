@@ -9,7 +9,9 @@ class Order_list{
     void save(std::ostream& ost);
     void load(std::istream& ist);
     Order_list(std::istream& ist);
-    void add_a(std::string name, double price);
+    int size() const {return _ps.size();}
+    Order at(int i) const {return _ps.at(i);}
+    void add_a(Order ps);
     bool operator==(const Order_list o);
     bool operator!=(const Order_list o);
   private:

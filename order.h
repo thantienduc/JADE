@@ -2,6 +2,7 @@
 #define __ORDER_H
 
 #include "product_order.h"
+#include "product_order_list.h"
 #include <vector>
 #include <fstream>
 
@@ -18,6 +19,6 @@ class Order{
     friend std::ostream& operator<<(std::ostream& ost, const Order& order);
   private:
     std::string _email;
-    std::vector<Product_order> _products;
+    Product_order_list _product_orders;
 };
 #endif

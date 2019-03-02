@@ -12,15 +12,8 @@ void Product_list::load(std::istream& ist) {
        while(num_elements--) _ps.push_back(Product{ist});
 }
 
-Product_list::Product_list(std::istream& ist) {
-       int num_elements; 
-       ist >> num_elements; ist.ignore();
-      // while(num_elements--) _ps.push_back(Product{}); // Push num_elements new objects
-    }
-
-    // This is simply the method main() needs to add some data to a B object.
-void Product_list::add_a(std::string name, double price) {
-        _ps.push_back(Product{name,price});
+void Product_list::add_a(Product p) {
+        _ps.push_back(p);
     }
 
     // The == and != operators are just needed for testing in main. They aren't needed
