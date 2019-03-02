@@ -9,8 +9,8 @@ debug: all
 test: CXXFLAGS += -g
 test: test_product test_product_order test_order test_store
 
-mavmart: main.o controller.o view.o store.o order.o product.o product_order.o *.h
-	${CXX} ${CXXFLAGS} -o mavmart main.o controller.o view.o store.o order.o product.o product_order.o
+mavmart: main.o controller.o view.o store.o order.o product.o product_order.o product_list.o product_order_list.o order_list.o *.h
+	${CXX} ${CXXFLAGS} -o mavmart main.o controller.o view.o store.o order.o product.o product_order.o product_list.o product_order_list.o order_list.o
 main.o: main.cpp *.h
 	${CXX} ${CXXFLAGS} -c main.cpp
 controller.o: controller.cpp *.h
@@ -25,7 +25,12 @@ product.o: product.cpp *.h
 	${CXX} ${CXXFLAGS} -c product.cpp
 product_order.o: product_order.cpp *.h
 	${CXX} ${CXXFLAGS} -c product_order.cpp
-
+product_list.o: product_list.cpp *.h
+	${CXX} ${CXXFLAGS} -c product_list.cpp
+product_order_list.o: product_order_list.cpp *.h
+	${CXX} ${CXXFLAGS} -c product_order_list.cpp
+order_list.o: order_list.cpp *.h
+	${CXX} ${CXXFLAGS} -c order_list.cpp
 test_product: test_product.o product.o *.h
 	${CXX} ${CXXFLAGS} -o test_product test_product.o product.o
 	-./test_product
