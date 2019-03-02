@@ -14,7 +14,8 @@
             void list_all_order();
             void easter_egg();
             void help();
-            
+            void save ();
+            void load ();
         private:
             Store _store;
             View _view;

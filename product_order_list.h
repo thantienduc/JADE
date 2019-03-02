@@ -11,7 +11,7 @@ class Product_order_list{
     Product_order_list(std::istream& ist);
     int size() const {return _ps.size();}
     Product_order at(int i) const {return _ps.at(i);}
-    const std::vector<Product_order>& list() const {return _ps;}
+    std::vector<Product_order> list() const {return _ps;}
     void add_a(Product_order p);
     bool operator==(const Product_order_list b);
     bool operator!=(const Product_order_list b);

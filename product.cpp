@@ -13,5 +13,5 @@ std::ostream& operator<<(std::ostream& ost, const Product& product) {
 }
 
 void Product::save(std::ostream& ost) {
-        ost << _name << " ($" << std::fixed << std::setprecision(2) << _price << ')' << '\n';
+        ost << _name  << " " << _price << '\n';
     }

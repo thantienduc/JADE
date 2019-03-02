@@ -24,7 +24,8 @@ Product_order Order::product_order(int index) {
     return _product_orders.at(index);
 }
 std::ostream& operator<<(std::ostream& ost, const Order& order) {
-    for (auto& po : order._product_orders.list()) ost << "  " << po << '\n';
+    for (auto& po : order._product_orders.list()) 
+        ost << po.name() << '\n';
     return ost;
 }
 

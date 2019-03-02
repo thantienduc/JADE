@@ -1,4 +1,5 @@
 #include "store.h"
+#include <fstream>
 
 Store::Store(std::string name) : _name{name} { }
 std::string Store::name() const {return _name;}
@@ -14,6 +15,38 @@ Product Store::product(int index) const {
 }
 
 // Order Management
+void Store::save(std::string path){
+
+    std::ofstream ost;
+    ost.open(path+"/store.db",std::ofstream::out);
+    ost << _name << '\n';
+    ost.close();
+
+    ost.open(path+"/products.db",std::ofstream::out);
+    _products.save(ost);
+    ost.close();
+
+    ost.open(path+"/orders.db",std::ofstream::out);
+    _orders.save(ost);
+    ost.close();
+}
+
+void Store::load(std::string path){
+
+    std::ifstream ist;
+    ist.open(path+"/store.db",std::ifstream::in);
+    ist >> _name;
+    ist.close();
+
+    ist.open(path+"/products.db",std::ifstream::in);
+    _products.load(ist);
+    ist.close();
+
+    ist.open(path+"/orders.db",std::ifstream::in);
+    _orders.load(ist);
+    ist.close();
+}
+
 int Store::create_order(std::string email) {
     _orders.add_a(Order{email});
     return _orders.size()-1;

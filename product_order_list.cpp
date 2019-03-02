@@ -1,6 +1,5 @@
 #include "./product_order_list.h"
 
-Product_order_list::Product_order_list() {};
 void Product_order_list::save(std::ostream& ost) {
         ost << _ps.size() << '\n';
         for(Product_order& a : _ps) a.save(ost);

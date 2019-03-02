@@ -12,8 +12,8 @@ std::string View::main_menu(){
     str.reserve(menu.tellg());
     menu.seekg(0, std::ios::beg);
     str.assign((std::istreambuf_iterator<char>(menu)),
-            std::istreambuf_iterator<char>());
-            return str;
+    std::istreambuf_iterator<char>());
+    return str;
 }
 
 std::string View::help(){
