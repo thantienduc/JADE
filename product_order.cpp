@@ -11,8 +11,9 @@ Product_order::Product_order(std::istream& ist) :Product{ist} {
 }
 
 void Product_order::save(std::ostream& ost) {
-    ((Product) *this).save(ost); 
-    ost << _quantity;
+    ((Product) *this).save(ost);
+    std::cout<< "Product_order::save " << ((Product) *this).name() << " " << ((Product) *this).price() << std::endl;
+    ost << _quantity << "\n";
     
 }
 int Product_order::quantity() const {return _quantity;}

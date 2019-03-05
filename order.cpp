@@ -7,7 +7,8 @@ Order::Order(std::istream& ist) {
     ist >> _email; ist.ignore();
     int numoforder;
     ist >> numoforder;
-    while (--numoforder) _product_orders.add_a(Product_order(ist)); 
+    for (int i = 0; i < numoforder; i++)
+        _product_orders.add_a(Product_order(ist)); 
 }
 std::string Order::email() const {return _email;}
 double Order::cost() {
@@ -42,8 +43,7 @@ std::ostream& operator<<(std::ostream& ost, const Order& order) {
 void Order::save(std::ostream& ost){
     ost << _email <<'\n';
     ost << _product_orders.size() << '\n';
-    int s = _product_orders.size();
-    while (--s) {
-       _product_orders.at(s).save(ost);
-    }
+    for (int i = 0; i < _product_orders.size(); i++){
+        _product_orders.at(i).save(ost);
+    }  
 }
