@@ -26,3 +26,9 @@ void Order_list::add_a(Order ps) {
     bool Order_list:: operator!=(const Order_list b) {
         return !(*this == b);
     }*/
+
+//// MODIFICATION FUNCTIONS
+
+void Order_list::add_product_order(int orderid, Product_order po){
+    _ps.at(orderid).add_product_order(po);
+}

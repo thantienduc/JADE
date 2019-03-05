@@ -14,6 +14,9 @@ class Order_list{
     void add_a(Order ps);
     bool operator==(const Order_list o);
     bool operator!=(const Order_list o);
+
+    //// MODIFICATION FUNCTION
+    void add_product_order(int orderid, Product_order po);
   private:
     std::vector<Order> _ps;
 };

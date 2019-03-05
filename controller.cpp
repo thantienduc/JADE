@@ -7,7 +7,7 @@ Controller::Controller(Store store): _store{store}, _view{store}{};
 void Controller::cli(){
     int cmd=1;
     while(cmd){
-        //std::cout << _view.main_menu();;
+        std::cout << _view.main_menu();
         std::cout << _store.num_orders() << std::endl;
         std::cin >> cmd;
         execute_cmd(cmd);
@@ -76,7 +76,8 @@ void Controller::add_order(){
 
 void Controller::list_all_order(){
     for(int i =0; i<_store.num_orders();i++) {
-        std::cout << _store.order(i)<<std::endl;
+        std::cout << "Order ID: " << i+1 << std::endl;
+        std::cout << _store.order(i) <<std::endl;
     }
 }
 

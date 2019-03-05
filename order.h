@@ -10,7 +10,7 @@ class Order{
   public:
     Order(std::string email);
     Order(std::istream& ist);
-    std::string email();
+    std::string email() const;
     double cost();
     void add_product_order(Product_order po);
     int num_product_orders();

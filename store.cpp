@@ -48,14 +48,14 @@ void Store::load(std::string path){
 }
 
 int Store::create_order(std::string email) {
-    _orders.add_a(Order{email});
-    return _orders.size()-1;
+    this->_orders.add_a(Order(email));
+    return this->_orders.size()-1;
 }
 void Store::add_to_order(int order_num, Product_order po) {
     if (0 > order_num || order_num > (_orders.size()-1)) 
         throw std::out_of_range{"Store " + _name + ": Tried to add to Order " + std::to_string(order_num) 
             + " with only " + std::to_string(_orders.size()-1) + " orders"};
-    _orders.at(order_num).add_product_order(po);
+    _orders.add_product_order(order_num, po);
 }
 int Store::num_orders() const {return _orders.size();}
 Order Store::order(int order_num) const {
