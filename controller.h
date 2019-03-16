@@ -1,6 +1,7 @@
 #ifndef _CONTROLLER_H
 #define _CONTROLLER_H
 #include "view.h"
+#include "dialogs.h"
 
     class Controller{
         public:
@@ -9,7 +10,7 @@
             void cli();
             void execute_cmd(int cmd);
             void add_product();
-            void list_all_product();
+            std::string list_all_product(bool state);
             void add_order();
             void list_all_order();
             void easter_egg();
